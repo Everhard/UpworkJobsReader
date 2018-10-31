@@ -104,32 +104,34 @@ class UpworkJobsReader
 
             if (!($this->experience_entry_level && $this->experience_intermediate_level && $this->experience_expert_level)) {
 
-                $request_url .= "&contractor_tier=";
+                $experience_url_part = '';
 
                 $option_selected = false;
 
                 if ($this->experience_entry_level) {
-                    $request_url .= "1";
+                    $experience_url_part .= "1";
                     $option_selected = true;
                 }
 
                 if ($this->experience_intermediate_level) {
                     if ($option_selected) {
-                        $request_url .= ",";
+                        $experience_url_part .= ",";
                     }
-                    $request_url .= "2";
+                    $experience_url_part .= "2";
                     $option_selected = true;
                 }
 
                 if ($this->experience_expert_level) {
                     if ($option_selected) {
-                        $request_url .= ",";
+                        $experience_url_part .= ",";
                     }
-                    $request_url .= "3";
+                    $experience_url_part .= "3";
                 }
+
+                $request_url .= "&contractor_tier=" . urlencode($experience_url_part);
             }
         }
 
-        return $request_url;
+        return $request_url . '&api_params=1';
     }
 }
