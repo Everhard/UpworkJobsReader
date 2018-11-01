@@ -2,16 +2,16 @@
 
 class UpworkJob
 {
-    private $title;
-    private $description;
-    private $category;
-    private $country;
-    private $skills;
-    private $budget;
-    private $link;
-    private $created_date;
-    private $created_timestamp;
-    private $posted_date;
+    public $title;
+    public $description;
+    public $category;
+    public $country;
+    public $skills;
+    public $budget;
+    public $link;
+    public $created_date;
+    public $created_timestamp;
+    public $posted_date;
 
     public function __construct($params)
     {
