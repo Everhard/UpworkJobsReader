@@ -13,7 +13,7 @@ php composer require steadfast/upwork-jobs-reader
 
 ## Usage
 ```php
-$reader = UpworkJobsReader;
+$reader = new \UpworkJobsReader();
 $jobs = $reader->fetchJobs();
 
 foreach($jobs as $job) {
@@ -22,9 +22,9 @@ foreach($jobs as $job) {
   echo $job->description;
   echo $job->created_date;
   echo $job->posted_date;
-  echo $job->category
+  echo $job->category;
   echo $job->country;
-  echo $job->skills;
+  print_r($job->skills);
   echo $job->budget;
 }
 ```
