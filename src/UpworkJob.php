@@ -43,7 +43,7 @@ class UpworkJob
         return new self([
             'title'             => (string) $xml_item->title,
             'link'              => (string) $xml_item->link,
-            'description'       => $description,
+            'description'       => self::clearDescription($description),
             'created_date'      => $created_date,
             'created_timestamp' => $created_timestamp,
             'category'          => $fields['category'],
@@ -94,5 +94,10 @@ class UpworkJob
         }
 
         return $fields;
+    }
+
+    private static function clearDescription($description)
+    {
+        return preg_replace('{(<br />){2,3}<b>.*}s', '', $description);
     }
 }
